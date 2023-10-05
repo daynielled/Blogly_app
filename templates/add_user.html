@@ -4,9 +4,9 @@
 
 {% block content %}
     <h3>{{ title }}</h3>
-    <form method="post" action="{{ url_for('add_user') }}">
+    <form method="post" href="/users/new"
         <!-- Add form fields here, e.g., first_name, last_name, image_url -->
         <button type="submit" class="btn btn-success">Save</button>
     </form>
-    <a href="{{ url_for('list_users') }}" class="btn btn-secondary">Cancel</a>
+    <a href="/users" class="btn btn-secondary">Cancel</a>
 {% endblock %}

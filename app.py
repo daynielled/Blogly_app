@@ -3,9 +3,10 @@
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_debugtoolbar import DebugToolbarExtension
-from models import db, connect_db, User
+from models import db, connect_db, User, Post
 
 app = Flask(__name__)
+db = SQLAlchemy(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
@@ -34,7 +35,7 @@ def new_user_form():
     """Show the add user form"""
     return render_template('add_user.html')
 
-@app.route('user/new', methods=['POST'])
+@app.route('/user/new', methods=['POST'])
 def add_user():
     """Add new user"""
     first_name = request.form['first_name']
@@ -79,3 +80,5 @@ def delete_user(user_id):
     db.session.commit()
 
     return redirect('/users')
+
+

@@ -1,12 +1,50 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}{{ Create New User }}{% endblock %}
 
 {% block content %}
-    <h3>{{ title }}</h3>
-    <form method="post" href="/users/new"
-        <!-- Add form fields here, e.g., first_name, last_name, image_url -->
-        <button type="submit" class="btn btn-success">Save</button>
-    </form>
-    <a href="/users" class="btn btn-secondary">Cancel</a>
+    <h3>{{ Create User }}</h3>
+    <form method="POST">
+
+        <div class="form-group row">
+          <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
+          <div class="col-sm-10">
+            <input type="text"
+                   class="form-control"
+                   id="first_name"
+                   name="first_name"
+                   placeholder="Enter a first name">
+          </div>
+        </div>
+      
+        <div class="form-group row">
+          <label for="last_name" class="col-sm-2 col-form-label">Last Name</label>
+          <div class="col-sm-10">
+            <input type="text"
+                   class="form-control"
+                   id="last_name"
+                   name="last_name"
+                   placeholder="Enter a last name">
+          </div>
+        </div>
+      
+        <div class="form-group row">
+          <label for="img_url" class="col-sm-2 col-form-label">Image URL</label>
+          <div class="col-sm-10">
+            <input type="text"
+                   class="form-control"
+                   id="img_url"
+                   name="img_url"
+                   placeholder="Upload an image for this user">
+          </div>
+        </div>
+      
+        <div class="form-group row">
+          <div class="ml-auto mr-3">
+            <button type="submit" class="btn btn-success">Add</button>
+          </div>
+        </div>
+      
+      </form>
+    
 {% endblock %}

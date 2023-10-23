@@ -3,15 +3,25 @@
 {% block title %} Edit Post {% endblock %}
 
 {% block content %}
-    <form method="post" action="/posts/{{post_id}}/edit">
-        <div class="form-group">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}" required>
+
+<form method="post" action="/posts/{{post_id}}/edit">
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="content">Post Content:</label>
+        <textarea class="form-control" id="content" name="content" required>{{ post.content }}</textarea>
+    </div>
+
+    <div class="form-group row">
+        <div class="ml-auto mr-3">
+            <a href="/users/{{ post.user_id }}" class="btn btn-outline-info">
+                Cancel
+            </a>
+            <button type="submit" class="btn btn-success">Save Changes</button>
         </div>
-        <div class="form-group">
-            <label for="content">Content:</label>
-            <textarea class="form-control" id="content" name="content" required>{{ post.content }}</textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-    </form>
+    </div>
+</form>
 {% endblock %}

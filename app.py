@@ -18,7 +18,7 @@ debug = DebugToolbarExtension(app)
 connect_db(app)
 db.create_all()
 
-#User Routes
+
 
 @app.route('/')
 def index():
@@ -26,7 +26,13 @@ def index():
     posts= Post.query.order_by(Post.created_at.desc()).limit(10).all()
     return render_template('homepage_post.html', posts=posts)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    """Show 404 NOT FOUND page."""
 
+    return render_template('404.html'), 404
+
+#######User Routes########
 
 @app.route('/users')
 def list_users():
@@ -98,7 +104,7 @@ def delete_user(user_id):
 
     return redirect('/users')
 
-# Post Routes
+#######Post Routes#########
 
 @app.route('/users/<int:user_id>/posts/new')
 def new_posts_form(user_id):

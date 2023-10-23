@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ Create New User }}{% endblock %}
+{% block title %} Create New User {% endblock %}
 
 {% block content %}
-    <h3>{{ Create User }}</h3>
-    <form method="POST">
+    <h3>Create User</h3>
+    <form method="POST" action="/users/new">
 
         <div class="form-group row">
           <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
@@ -40,8 +40,8 @@
         </div>
       
         <div class="form-group row">
-          <div class="ml-auto mr-3">
-            <button type="submit" class="btn btn-success">Add</button>
+          <div class="ml-auto">
+            <button type="submit" class="btn btn-success">Add User</button>
           </div>
         </div>
       
